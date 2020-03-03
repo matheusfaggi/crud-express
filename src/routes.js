@@ -11,7 +11,7 @@ router.post("/", (req, res) => {
 });
 
 router.get("/params", (req, res) => {
-  res.json({ request: req.params });
+  res.json({ request: req.query });
 });
 
 module.exports = router;
