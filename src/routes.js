@@ -10,4 +10,8 @@ router.post("/", (req, res) => {
   res.json({ request: req.body });
 });
 
+router.get("/params", (req, res) => {
+  res.json({ request: req.params });
+});
+
 module.exports = router;
