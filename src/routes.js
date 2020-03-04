@@ -4,6 +4,7 @@ const router = express.Router();
 const Country = require("./Country");
 
 router.post("/", Country.store);
+router.get("/", Country.show);
 
 router.get("/params", (req, res) => {
   res.json({ request: req.query });

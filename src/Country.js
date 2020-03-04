@@ -18,4 +18,15 @@ Country.store = (req, res) => {
   console.log(Countries);
 };
 
+/**
+ * @param { import('express').Request } req
+ * @param { import('express').Response } res
+ */
+Country.show = (req, res) => {
+  const { id } = req.body;
+
+  if (!id) res.json(Countries);
+  else res.json(Countries.filter(item => item.id === id));
+};
+
 module.exports = Country;
