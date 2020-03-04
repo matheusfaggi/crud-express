@@ -1,6 +1,7 @@
-const Country = {};
-const Countries = [];
 const uuid = require("uuid");
+
+const Country = {};
+var Countries = [];
 
 /**
  * @param { import('express').Request } req
@@ -27,6 +28,19 @@ Country.show = (req, res) => {
 
   if (!id) res.json(Countries);
   else res.json(Countries.filter(item => item.id === id));
+};
+/**
+ * @param { import('express').Request } req
+ * @param { import('express').Response } res
+ */
+Country.delete = (req, res) => {
+  const { id } = req.body;
+  if (!id) {
+    res.status(400).json({ message: "Bad Request" });
+    return;
+  }
+  Countries = Countries.filter(item => item.id != id);
+  res.status(200).json({ message: "Country deleted successfull" });
 };
 
 module.exports = Country;
