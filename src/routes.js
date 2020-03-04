@@ -1,14 +1,9 @@
 const express = require("express");
 
 const router = express.Router();
+const Country = require("./Country");
 
-router.get("/", (req, res) => {
-  res.json({ message: "Hello World" });
-});
-
-router.post("/", (req, res) => {
-  res.json({ request: req.body });
-});
+router.post("/", Country.store);
 
 router.get("/params", (req, res) => {
   res.json({ request: req.query });
