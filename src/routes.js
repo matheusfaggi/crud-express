@@ -6,6 +6,7 @@ const Country = require("./Country");
 router.post("/", Country.store);
 router.get("/", Country.show);
 router.delete("/", Country.delete);
+router.put("/", Country.alter);
 
 router.get("/params", (req, res) => {
   res.json({ request: req.query });

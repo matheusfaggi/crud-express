@@ -42,5 +42,21 @@ Country.delete = (req, res) => {
   Countries = Countries.filter(item => item.id != id);
   res.status(200).json({ message: "Country deleted successfull" });
 };
+/**
+ * @param { import('express').Request } req
+ * @param { import('express').Response } res
+ */
+Country.alter = (req, res) => {
+  const { id, name, initials } = req.body;
+  if (!id) {
+    res.status(400).json({ message: "Bad Request" });
+    return;
+  }
+  Countries = Countries.map(item => {
+    if (item.id === id) return { id, name, initials };
+    else return item;
+  });
+  res.status(200).json({ message: "Country changed successfull" });
+};
 
 module.exports = Country;
